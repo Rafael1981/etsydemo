@@ -44,6 +44,12 @@ gem 'bootstrap-sass', '~> 3.3.3'
 # Adding Paperclip
 gem "paperclip", "~> 4.2"
 
+# Adding paperclip-dropbox
+gem "paperclip-dropbox", ">= 1.1.7"
+
+# Adding figaro
+gem "figaro"
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
