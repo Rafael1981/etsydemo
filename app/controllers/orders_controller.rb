@@ -2,7 +2,18 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+
   respond_to :html
+
+  def sales
+    @orders = Order.all.where(seller: current_user).order("created_at DESC")
+    respond_with(@orders)
+  end
+
+  def purchases
+    @orders = Order.all.where(buyer: current_user).order("created_at DESC")
+    respond_with(@orders)
+  end
 
   def index
     @orders = Order.all
